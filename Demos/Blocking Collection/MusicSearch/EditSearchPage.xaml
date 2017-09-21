@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="MusicSearch.EditSearchPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             Title="Edit Search Criteria">
+
+    <StackLayout Padding="10" Spacing="10">
+
+        <Picker Title="Choose Field">
+            <Picker.Behaviors>
+              <infrastructure:PickerBindBehavior Items="{Binding AvailableFields}"
+                                       SelectedItem="{Binding Field, Mode=TwoWay}" />
+            </Picker.Behaviors>
+        </Picker>
+
+        <Picker>
+            <Picker.Behaviors>
+              <infrastructure:PickerBindBehavior Items="{Binding AvailableOperators}"
+                                       SelectedItem="{Binding OperatorText, Mode=TwoWay}" />
+            </Picker.Behaviors>
+        </Picker>
+
+        <Entry Placeholder="Enter Value" Text="{Binding Value, Mode=TwoWay}" />
+
+        <Button Clicked="OnBack" Text="Save" />
+        <Button BackgroundColor="Red"
+                Command="{Binding Delete}"
+                Text="Delete" />
+
+    </StackLayout>
+
+</ContentPage>

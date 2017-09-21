@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="CatsDinner.MainPage"
+    xmlns:ext="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+    xmlns:app="clr-namespace:CatsDinner"
+    xmlns:views="clr-namespace:CatsDinner.Views"
+    Title="Dining Cats">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Start" Command="{Binding Start}" Icon="play.png" />
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Image Source="{ext:ImageResource CatsDinner.Images.background.png}" Aspect="AspectFill" />
+        <Image Source="{ext:ImageResource CatsDinner.Images.table.png}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <app:RadialLayout x:Name="Table" Padding="10" />
+        <views:StatusBar VerticalOptions="End" />
+    </Grid>
+
+</ContentPage>

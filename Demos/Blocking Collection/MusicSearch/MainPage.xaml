@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="MusicSearch.MainPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             Title="Select Search Criteria"
+             BackgroundColor="White">
+
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Command="{Binding AddSearchCriteria}" Icon="add.png" Text="Add" />
+  </ContentPage.ToolbarItems>
+
+  <Grid Padding="10" RowSpacing="20">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+
+    <Label FontAttributes="Bold"
+           LineBreakMode="WordWrap"
+           Text="Add Search Conditions to find, these are treated as AND conditions." />
+
+    <ListView Grid.Row="1"
+              ItemsSource="{Binding SearchCriteria}"
+              SeparatorVisibility="None">
+      <ListView.Behaviors>
+        <infrastructure:EventToCommandBehavior EventName="ItemTapped"
+                                               Command="{Binding EditSearchCriteria}"
+                                               EventArgsConverter="{StaticResource itemTappedConverter}" />
+      </ListView.Behaviors>
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Horizontal" Padding="5" Spacing="5">
+              <Frame BackgroundColor="#FFFFCC" HasShadow="False" OutlineColor="#FF9900">
+                <Label HorizontalTextAlignment="Center" Text="{Binding Field}" TextColor="Black" />
+              </Frame>
+              <Frame BackgroundColor="#33CCFF" HasShadow="False" OutlineColor="#330099">
+                <Label FontFamily="Courier New" Text="{Binding OperatorText}" TextColor="Black" />
+              </Frame>
+              <Frame BackgroundColor="#FFFFCC" HasShadow="False" OutlineColor="#FF9900">
+                <Label FontAttributes="Bold" Text="{Binding Value}" TextColor="Black" />
+              </Frame>
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+    <StackLayout Grid.Row="2" Padding="5">
+      <Entry Placeholder="Enter Consumers" Text="{Binding NumberOfConsumers, Mode=TwoWay}">
+        <Entry.Behaviors>
+          <infrastructure:NumericValidationBehavior />
+        </Entry.Behaviors>
+      </Entry>
+      <Button Command="{Binding Search}" Text="Search" />
+    </StackLayout>
+
+  </Grid>
+
+</ContentPage>

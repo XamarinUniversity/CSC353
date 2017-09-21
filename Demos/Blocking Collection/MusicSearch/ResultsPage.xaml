@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="MusicSearch.ResultsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             Title="Results">
+
+    <ContentPage.Behaviors>
+      <infrastructure:EventToCommandBehavior EventName="Disappearing"
+                      Command="{Binding CancelSearch}" />
+    </ContentPage.Behaviors>
+
+    <StackLayout Spacing="5">
+
+        <ContentView BackgroundColor="{StaticResource ButtonBackgroundColor}">
+            <Label FontSize="Small"
+                   Text="{Binding ResultsTime}"
+                   TextColor="{StaticResource ButtonForegroundColor}" />
+        </ContentView>
+
+        <ListView CachingStrategy="RecycleElement"
+                  ItemsSource="{Binding Results}"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                      <StackLayout Padding="5,20" Spacing="5" BackgroundColor="#DCF0F7">
+                        <Label FontSize="Large" Text="{Binding Title}" />
+                        <Label FontSize="Medium" TextColor="Gray" Text="{Binding Details}" />
+                        <StackLayout.Triggers>
+                            <DataTrigger TargetType="StackLayout" Binding="{Binding IsOddRow}" Value="True">
+                                <Setter Property="BackgroundColor" Value="White" />
+                            </DataTrigger>
+                        </StackLayout.Triggers>
+                      </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+
+</ContentPage>
