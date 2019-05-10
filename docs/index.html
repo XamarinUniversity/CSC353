@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>More about Synchronization</title>
+    <link rel="stylesheet" type="text/css" href="./parts/res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./parts/res/styles/prettify.css">
+    <link rel="stylesheet" type="text/css" href="./parts/res/styles/styles.css">
+</head>
+
+<body>
+    <!-- This will be filled in at runtime -->
+    <header role="course-title"></header>
+
+    <section id="main">
+
+        <h2>Before you begin</h2>
+        <p>
+        This is a Xamarin.Forms class. To complete the coding exercises, you will need a Xamarin.Forms development environment with either an emulator or a device to run the exercise on. Please see the <a href="https://university.xamarin.com/resources/setup-and-troubleshooting">setup page</a> if you need help installing the Xamarin development environment.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            In this class you will learn about some of the newer thread synchronization capabilities that have been added into the platform. This is a continuation of <a href="">CSC352 - An introduction to Thread Safety and Synchronization</a> where we introduced the topic. If you have not taken that class, please do so before attending this one.
+        </p>
+
+        <h2>Objectives</h2>
+        <ol>
+           <li>Beyond Monitor - implement other synchronization strategies</li>
+           <li>Work with Synchronized Collections</li>
+        </ol>
+
+        <h2>Lecture</h2>
+        <p><a href="./parts/slides.pdf">CSC353 - More about Synchronization</a>.</p>
+
+        <h2>Demos</h2>
+        <ol>
+            <li><div class="objective">Use a semaphore to control access to shared objects</div>
+            In this demo, we will use a Semaphore to limit the number of threads that can access a resource. The completed project is avaliable in <b>Demos</b> folder.
+            </li>
+
+            <li><div class="objective">Use Blocking Collections to provide an async search experience</div>
+            In this exercise, we will use a blocking collection to provide an asynchronous search operation in our application. he completed project is avaliable in <b>Demos</b> folder.
+            </li>            
+        </ol>
+
+        <!-- This section is for additional links and examples that are relevant to 
+            the material in this course -->
+        <h2>Additional resources</h2>
+ 
+        <div class="wslist">
+            <a target="_blank" href="https://msdn.microsoft.com/en-us/library/system.threading.mutex(v=vs.110).aspx">Mutex Class</a>
+            <a target="_blank" href="https://msdn.microsoft.com/en-us/library/system.threading.semaphoreslim(v=vs.110).aspx">SemephoreSlim Class</a>
+            <a target="_blank" href="http://joeduffyblog.com/2007/02/07/introducing-the-new-readerwriterlockslim-in-orcas/">Introducing the ReaderWriterLockSlim</a>
+            <a target="_blank" href="http://www.albahari.com/threading/part4.aspx">Threading in C#</a>
+            <a target="_blank" href="https://msdn.microsoft.com/en-us/library/dd267312(v=vs.110).aspx">BlockingCollection Class</a>
+ 
+        </div>
+
+    </section>
+
+    <script src="./parts/res/js/jquery.min.js"></script>
+    <script src="./parts/res/js/prettify.js"></script>
+    <script src="./parts/res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.<br><a target="_blank" href="http://university.xamarin.com">Visit Xamarin University for more classes and content</a></footer>
+</body>
+</html>
